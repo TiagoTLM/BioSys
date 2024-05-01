@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioSys - Cadastro de Exames</title>
+    <style>
+        /* Estilos CSS para o layout da página */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('https://blog.vitta.com.br/wp-content/uploads/2019/12/quais-as-especialidades-de-uma-clinica-1-scaled.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .cadastro-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .cadastro-container h2 {
+            margin-bottom: 20px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .input-group label {
+            font-weight: bold;
+            width: 150px;
+            text-align: left;
+            margin-right: 10px;
+        }
+        .input-group input {
+            flex: 1;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        .cadastro-btn {
+            background-color: #66b3fa;
+            color: rgb(253, 253, 253);
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="cadastro-container">
+        <h2>Cadastro de Exames</h2>
+        <form action="#" method="post">
+            <div class="input-group">
+                <label for="numero_exame"><b>Número do Exame:</b></label>
+                <input type="text" id="numero_exame" name="numero_exame" required>
+            </div>
+            <!-- Campo de Paciente -->
+            <div class="input-group">
+                <label for="paciente"><b>Paciente:</b></label>
+                <input type="text" id="paciente" name="paciente" required>
+            </div>
+            <!-- Campo de Idade -->
+            <div class="input-group">
+                <label for="idade"><b>Idade:</b></label>
+                <input type="number" id="idade" name="idade" required>
+            </div>
+            <!-- Campo de Convênio -->
+            <div class="input-group">
+                <label for="convenio"><b>Convênio:</b></label>
+                <input type="text" id="convenio" name="convenio" required>
+            </div>
+            <!-- Campo de Procedimento -->
+            <div class="input-group">
+                <label for="procedimento"><b>Procedimento:</b></label>
+                <input type="text" id="procedimento" name="procedimento" required>
+            </div>
+            <!-- Campo de Data -->
+            <div class="input-group">
+                <label for="data"><b>Data:</b></label>
+                <input type="date" id="data" name="data" required>
+            </div>
+            <!-- Campo de Hora de Início -->
+            <div class="input-group">
+                <label for="hora_inicio"><b>Hora de Início:</b></label>
+                <input type="text" id="hora_inicio" name="hora_inicio" required>
+            </div>
+            <!-- Campo de Hora de Término -->
+            <div class="input-group">
+                <label for="hora_termino"><b>Hora de Término:</b></label>
+                <input type="text" id="hora_termino" name="hora_termino" required>
+            </div>
+            <!-- Campo de Médico Solicitante -->
+            <div class="input-group">
+                <label for="medico_solicitante"><b>Médico Solicitante:</b></label>
+                <input type="text" id="medico_solicitante" name="medico_solicitante" required>
+            </div>
+            <!-- Campo de Médico Executante -->
+            <div class="input-group">
+                <label for="medico_executante"><b>Médico Executante:</b></label>
+                <input type="text" id="medico_executante" name="medico_executante" required>
+            </div>
+            <!-- Campo de Técnico Auxiliar -->
+            <div class="input-group">
+                <label for="tecnico_auxiliar"><b>Técnico Auxiliar:</b></label>
+                <input type="text" id="tecnico_auxiliar" name="tecnico_auxiliar" required>
+            </div>
+            <!-- Botão de Cadastro -->
+            <button type="submit" class="cadastro-btn"><strong>Cadastrar</strong></button>
+        </form>
+    </div>
+
+    <!-- Script para adicionar máscara de hora -->
+    <script>
+        // Função para formatar a hora conforme o usuário digita
+        function formatarHora(input) {
+            input.addEventListener('input', function (e) {
+                let valor = e.target.value.replace(/\D/g, '');
+                if (valor.length > 4) {
+                    valor = valor.substring(0, 4);
+                }
+                if (valor.length > 2) {
+                    valor = valor.replace(/^(\d{2})(\d)/g, '$1:$2');
+                }
+                e.target.value = valor;
+            });
+        }
+
+        // Aplicar a formatação de hora nos campos de hora de início e término
+        formatarHora(document.getElementById('hora_inicio'));
+        formatarHora(document.getElementById('hora_termino'));
+    </script>
+</body>
+</html>
