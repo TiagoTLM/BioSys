@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Login - CRUD beta 1</title>
+</head>
+<body>
+
+<form id="login-form" class="login-container" onsubmit="validateForm()">
+    <h2>Login</h2>
+    <div class="input-group">
+        <label for="nome_usuario"><b>Usuário:</b></label>
+        <input type="text" id="nome_usuario" name="nome_usuario" required>
+    </div>
+    <div class="input-group">
+        <label for="senha"><b>Senha:</b></label>
+        <input type="password" id="senha" name="senha" required>
+    </div>
+    <div style="margin-bottom: 10px;">
+        <button type="submit" class="login-btn">Entrar</button>
+    </div>
+    <div>
+        <button type="button" class="clear" id="recover-password-button">Recuperar senha</button> 
+    </div>
+</form>
+
+<!--CSS-->
+<link rel="stylesheet" href="index.css">
+
+<script src="index.js"></script>
+
+</body>
+</html>
