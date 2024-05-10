@@ -10,6 +10,16 @@ function onChangeSenha(){
     togglePasswordErrors();
 }
 
+
+//Redirecionando para a tela de Cadastros
+function login() {  
+    window.location.href = "cadastro.html"
+    
+    // Exibindo informações de localização no console
+    console.log('### window', window);
+    console.log('### window location', window.location);
+} 
+
 //Verificando validade do email
 function isEmailValid(){
     const email = form.email().value;
@@ -66,14 +76,7 @@ function toggleButtonsDisable(){
     form.loginBtn().disabled = !emailValid || !passwordValid;  //Botão desabilitado caso as duas funções sejam False
 }
 
-//Redirecionando para a tela de Cadastros
-function login() {  
-    window.location.href = "cadastro.html"
-    
-    // Exibindo informações de localização no console
-    console.log('### window', window);
-    console.log('### window location', window.location);
-} 
+
 
 //Encapsulando o código
 const form = {
