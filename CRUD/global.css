@@ -1,0 +1,91 @@
+button {
+    cursor: pointer;
+     background-color: #66b3fa;
+     color: white;
+     padding: 10px;
+     border: none;
+     margin-bottom: 10px;
+ }
+
+ body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url('bkg.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+    .cadastro-container {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 8px;
+        text-align: left;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .cadastro-container h2 {
+        margin-bottom: 20px;
+    }
+    .login-container {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 8px;
+        text-align: left;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .login-container h2 {
+            margin-bottom: 20px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .input-group label {
+            font-weight: bold;
+            width: 80px; /* Largura fixa para alinhar todos os rótulos */
+            text-align: left; /* Alinhamento à esquerda */
+            margin-right: 10px;
+        }
+        .input-group input {
+            flex: 1;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        .input-group {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .input-group label {
+            font-weight: bold;
+            width: 150px;
+            text-align: left;
+            margin-right: 10px;
+        }
+        .input-group input {
+            flex: 1;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        .cadastro-btn {
+            background-color: #66b3fa;
+            color: rgb(253, 253, 253);
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .error {
+            color: red;   
+            display: none;
+        }
