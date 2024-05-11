@@ -13,12 +13,12 @@ function onChangeSenha(){
 
 //Redirecionando para a tela de Cadastros
 function login() {  
-    window.location.href = "cadastro.html"
+    window.location.href = "cadastro.html";
     
     // Exibindo informações de localização no console
     console.log('### window', window);
     console.log('### window location', window.location);
-} 
+}
 
 //Verificando validade do email
 function isEmailValid(){
