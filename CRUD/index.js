@@ -63,7 +63,7 @@ function toggleRegistrarButton() {
     const password = form.senha().value;
 
     // Habilita ou desabilita o botão de registro com base no email e na senha
-    if (email === "tiago@tiago.tlm" && password === "71460") {
+    if (email === "tiagotlm@icloud.com" && password === "#71460@Moraes#") {
         form.registraBtn().disabled = false; // Habilita o botão de registro
     } else {
         form.registraBtn().disabled = true; // Desabilita o botão de registro
