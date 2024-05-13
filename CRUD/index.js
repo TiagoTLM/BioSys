@@ -10,16 +10,6 @@ function onChangeSenha(){
     togglePasswordErrors();
 }
 
-
-//Redirecionando para a tela de Cadastros
-function login() {  
-    window.location.href = "cadastro.html";
-    
-    // Exibindo informações de localização no console
-    console.log('### window', window);
-    console.log('### window location', window.location);
-}
-
 //Verificando validade do email
 function isEmailValid(){
     const email = form.email().value;
@@ -30,7 +20,6 @@ function isEmailValid(){
     return validateEmail(email);
 }
 
-
 //Validando a senha
 function isPasswordValid(){
     const password = form.senha().value;
@@ -38,7 +27,7 @@ function isPasswordValid(){
     if (!password) {
         return false;
     }
-    return true;
+    return true; // Qualquer senha não vazia é considerada válida
 }
 
 function toggleEmailErrors(){   //Função que alterna entre os erros para o email de login
@@ -68,15 +57,33 @@ function togglePasswordErrors(){
     }
 }
 
-function toggleButtonsDisable(){
-    const emailValid = isEmailValid();
-    form.recoverBtn().disabled = !emailValid;
-    
-    const passwordValid = isPasswordValid();
-    form.loginBtn().disabled = !emailValid || !passwordValid;  //Botão desabilitado caso as duas funções sejam False
+// Função para habilitar ou desabilitar o botão Registrar com base no email e na senha
+function toggleRegistrarButton() {
+    const email = form.email().value;
+    const password = form.senha().value;
+
+    // Habilita ou desabilita o botão de registro com base no email e na senha
+    if (email === "tiago@tiago.tlm" && password === "71460") {
+        form.registraBtn().disabled = false; // Habilita o botão de registro
+    } else {
+        form.registraBtn().disabled = true; // Desabilita o botão de registro
+    }
 }
 
+// Função para habilitar ou desabilitar todos os botões com base no email e na senha
+function toggleButtonsDisable(){
+    const emailValid = isEmailValid();
+    const passwordValid = isPasswordValid();
 
+    // Habilita ou desabilita o botão de acesso com base na validade do email e da senha
+    form.loginBtn().disabled = !emailValid || !passwordValid;
+
+    // Habilita ou desabilita o botão de recuperação com base na validade do email
+    form.recoverBtn().disabled = !emailValid;
+
+    // Habilita ou desabilita o botão de registro com base no email e na senha
+    toggleRegistrarButton();
+}
 
 //Encapsulando o código
 const form = {
@@ -86,7 +93,13 @@ const form = {
     emailRequired: () => document.getElementById('obrigLogin'),
     loginBtn: () => document.getElementById('login-btn'),
     recoverBtn: () => document.getElementById('recover-btn'),
-    obrigSenha: () => document.getElementById('obrigSenha')
+    obrigSenha: () => document.getElementById('obrigSenha'),
+    registraBtn: () => document.getElementById('registra-btn')
 }
 
+// Event listeners para os campos de email e senha
+form.email().addEventListener('change', onChangeEmail);
+form.senha().addEventListener('change', onChangeSenha);
 
+// Chamada inicial para garantir que os botões estejam corretamente configurados quando a página é carregada
+toggleButtonsDisable();
