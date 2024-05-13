@@ -10,23 +10,19 @@
     <h2>Login</h2>
 
     <div class="input-group">
-        <!--<label for="nome_usuario"><b>Email:</b></label>-->
         <input type="text" id="email" name="email" placeholder="seu@email.com" onchange="onChangeEmail()" required>
     </div>
-    <div class="error" id="obrigLogin">Informe um email</div> <!--Avisando o user-->
-    <div class="error" id="avisoLogin">Informe um email válido</div> <!--Avisando o user-->
+    <div class="error" id="obrigLogin">Informe um email</div>
+    <div class="error" id="avisoLogin">Informe um email válido</div>
 
     <div class="input-group">
-       <!-- <label for="senha"><b>Senha:</b></label>-->
         <input type="password" id="senha" name="senha" placeholder="sua senha" onchange="onChangeSenha()" required>
     </div>
-    <div class="error" id="obrigSenha">Informe uma senha</div> <!--Avisando o user-->
-    <div class="error" id="avisoSenha">Senha inválida</div> <!--Avisando o user-->
-    
+    <div class="error" id="obrigSenha">Informe uma senha</div>
+    <div class="error" id="avisoSenha">Senha inválida</div>
     
     <div>
         <button type="submit" class="login-btn" disabled="true" id="login-btn" onclick="login(event)">Acessar</button>
-
         <button type="submit" class="registra-btn" disabled="true" id="registra-btn" onclick="registro(event)">Registrar</button>
     </div>
     <div>
@@ -35,16 +31,33 @@
    
 </form>
 
-
-<!--CSS   -->
+<!-- CSS -->
 <link rel="stylesheet" href="index.css">
 <link rel="stylesheet" href="global.css">
 
- <!--Chamando o script de login-->   
- <script src="login.js"></script>
-
+<!-- Scripts -->
+<script src="login.js"></script>
 <script src="index.js"></script>
 <script src="validate.js"></script>
+<script src="loading.js"></script>
+
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyDR5CoqmF2xmjzpwJP1D9kRxSS3ZjRvmyc",
+    authDomain: "biosys-3d555.firebaseapp.com",
+    projectId: "biosys-3d555",
+    storageBucket: "biosys-3d555.appspot.com",
+    messagingSenderId: "232723607672",
+    appId: "1:232723607672:web:9435e6639b094b1f257d8d"
+};
+  
+  firebase.initializeApp(firebaseConfig);
+  
+</script>
 
 </body>
 </html>
