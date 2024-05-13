@@ -22,5 +22,19 @@ Apenas com o usuário possuidor das permissões de Admin pode interagir com o bo
 
 ![print4](https://raw.githubusercontent.com/TiagoTLM/BioSys/main/img/Reg.png)
 
+
+Erro de autenticação do usuário (Firebase):
+
+
+![print5](https://github.com/TiagoTLM/BioSys/blob/main/img/Auth.png?raw=true)
+
+Tela de cadastro de exames (fase beta):
+
+
+![print6](https://github.com/TiagoTLM/BioSys/blob/main/img/Cadastro.png?raw=true)
+
+
+
+
 Em breve mais atualizações.
 
