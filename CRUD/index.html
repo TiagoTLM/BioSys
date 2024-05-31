@@ -3,37 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <title>BioSys - Login</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="global.css">
+    <style>
+        /* Estilo adicional para o botão Recuperar senha */
+        .recover-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #4CAF50; /* Cor de fundo */
+            color: white; /* Cor do texto */
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 4px; /* Borda arredondada */
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px; /* Espaço entre os botões e o botão "Recuperar senha" */
+        }
+        .button-container > * {
+            margin: 0 10px;
+        }
+        .recover-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        /* Adaptação para colocar todos os inputs dentro do login-container */
+        .login-container {
+            margin-bottom: 20px; /* Espaço abaixo do container de login */
+        }
+    </style>
 </head>
 <body>
-    
-<form id="login-form" class="login-container">
-    <h2>Login</h2>
 
-    <div class="input-group">
-        <input type="text" id="email" name="email" placeholder="seu@email.com" onchange="onChangeEmail()" required>
-    </div>
-    <div class="error" id="obrigLogin">Informe um email</div>
-    <div class="error" id="avisoLogin">Informe um email válido</div>
+<form id="login-form">
+    <!-- Container para os inputs de login -->
+    <div class="login-container">
+        <div class="input-group">
+            <input type="text" id="email" name="email" placeholder="seu@email.com" onchange="onChangeEmail()" required>
+        </div>
+        <div class="error" id="obrigLogin">Informe um email</div>
+        <div class="error" id="avisoLogin">Informe um email válido</div>
 
-    <div class="input-group">
-        <input type="password" id="senha" name="senha" placeholder="sua senha" onchange="onChangeSenha()" required>
+        <div class="input-group">
+            <input type="password" id="senha" name="senha" placeholder="sua senha" onchange="onChangeSenha()" required>
+        </div>
+        <div class="error" id="obrigSenha">Informe uma senha</div>
+        <div class="error" id="avisoSenha">Senha inválida</div>
     </div>
-    <div class="error" id="obrigSenha">Informe uma senha</div>
-    <div class="error" id="avisoSenha">Senha inválida</div>
     
-    <div>
+    <div class="button-container">
         <button type="submit" class="login-btn" disabled="true" id="login-btn" onclick="login(event)">Acessar</button>
         <button type="submit" class="registra-btn" disabled="true" id="registra-btn" onclick="registro(event)">Registrar</button>
     </div>
-    <div>
-        <button type="submit" class="clear" disabled="true" id="recover-btn">Recuperar senha</button> 
+    <div class="recover-container">
+        <button type="button" class="recover-btn" onclick="recoverPassword()" disabled="true" id="recover-btn">Recuperar senha</button>
     </div>
-   
 </form>
-
-<!-- CSS -->
-<link rel="stylesheet" href="index.css">
-<link rel="stylesheet" href="global.css">
 
 <!-- Scripts -->
 <script src="login.js"></script>
