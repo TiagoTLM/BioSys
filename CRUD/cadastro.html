@@ -4,12 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BioSys - Cadastro de Exames</title>
-   
+    <script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script>
+    <style>
+        .input-group {
+            margin-bottom: 15px;
+        }
+        #qr-reader-container {
+            width: 100%;
+            max-width: 300px;
+            margin-top: 10px;
+            overflow: hidden; /* Para esconder o leitor de QR code quando não estiver sendo usado */
+        }
+        #qr-reader {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <!-- Chamando o CSS -->
+    <link rel="stylesheet" href="global.css">
 </head>
 <body>
     <div class="cadastro-container">
         <h2>Cadastro de Exames</h2>
-        <form action="#" method="post">
+        <form action="#" method="post" enctype="multipart/form-data">
+            <!-- Seus campos de formulário aqui -->
             <div class="input-group">
                 <label for="numero_exame"><b>Número do Exame:</b></label>
                 <input type="text" id="numero_exame" name="numero_exame" required>
@@ -42,12 +60,12 @@
             <!-- Campo de Hora de Início -->
             <div class="input-group">
                 <label for="hora_inicio"><b>Hora de Início:</b></label>
-                <input type="text" id="hora_inicio" name="hora_inicio" required>
+                <input type="time" id="hora_inicio" name="hora_inicio" required>
             </div>
             <!-- Campo de Hora de Término -->
             <div class="input-group">
                 <label for="hora_termino"><b>Hora de Término:</b></label>
-                <input type="text" id="hora_termino" name="hora_termino" required>
+                <input type="time" id="hora_termino" name="hora_termino" required>
             </div>
             <!-- Campo de Médico Solicitante -->
             <div class="input-group">
@@ -64,36 +82,53 @@
                 <label for="tecnico_auxiliar"><b>Técnico Auxiliar:</b></label>
                 <input type="text" id="tecnico_auxiliar" name="tecnico_auxiliar" required>
             </div>
-            <!-- Botão de Cadastro -->
+            <!-- Campo para Leitura de QR Code -->
+            <p></p><div class="input-group" style="display: inline-block;">
+                <button type="button" id="start-qr-reader">QR Code</button>
+                <div id="qr-reader-container" style="display: none;">
+                <div id="qr-reader"></div>
+            </div>
+        <input type="text" id="qr_code" name="qr_code" readonly>
+    </div></body</p>
+    <!-- Botão de Cadastro -->
+    <div class="button-container">
+        <div class="button-group">
             <button type="submit" class="cadastro-btn"><strong>Cadastrar</strong></button>
-        </form>
+        </div>
     </div>
-
-    <!-- Script para adicionar máscara de hora -->
-    <script>
-        // Função para formatar a hora conforme o usuário digita
-        function formatarHora(input) {
-            input.addEventListener('input', function (e) {
-                let valor = e.target.value.replace(/\D/g, '');
-                if (valor.length > 4) {
-                    valor = valor.substring(0, 4);
-                }
-                if (valor.length > 2) {
-                    valor = valor.replace(/^(\d{2})(\d)/g, '$1:$2');
-                }
-                e.target.value = valor;
-            });
-        }
-
-        // Aplicar a formatação de hora nos campos de hora de início e término
-        formatarHora(document.getElementById('hora_inicio'));
-        formatarHora(document.getElementById('hora_termino'));
-    </script>
+        </form>
+    </div></body></html>
     
-<!--Chamando o CSS-->
-<!--<link rel="stylesheet" href="index.css"> -->
-<link rel="stylesheet" href="global.css">
 
+    <!-- Script para adicionar máscara de hora e leitor de QR code -->
+    <script>
+        document.getElementById('start-qr-reader').addEventListener('click', function() {
+            if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+                alert('Seu navegador não suporta a API de acesso à câmera.');
+                return;
+            }
 
+            navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
+                .then(function(stream) {
+                    document.getElementById('qr-reader-container').style.display = 'block'; // Mostrar o contêiner do leitor de QR code
+                    let html5QrCode = new Html5Qrcode("qr-reader");
+                    html5QrCode.start(
+                        { facingMode: "environment", videoElement: document.getElementById('qr-reader') },
+                        { fps: 10, qrbox: { width: 250, height: 250 } },
+                        function(decodedText, decodedResult) {
+                            document.getElementById('qr_code').value = decodedText;
+                            document.getElementById('qr-reader-container').style.display = 'none'; // Esconder o contêiner do leitor de QR code após a digitalização bem-sucedida
+                            html5QrCode.stop(); // Parar a leitura do QR code
+                        },
+                        function(errorMessage) {
+                            alert('Erro ao acessar a câmera: ' + errorMessage);
+                        }
+                    );
+                })
+                .catch(function(error) {
+                    alert('Erro ao acessar a câmera: ' + error.name + ' - ' + error.message);
+                });
+        });
+    </script>
 </body>
 </html>
