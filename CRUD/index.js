@@ -85,6 +85,16 @@ function toggleButtonsDisable(){
     toggleRegistrarButton();
 }
 
+
+//Função para recuperação de senha 
+function recoverPassword(){
+    firebase.auth().sendPasswordResetEmail(form.email().value).then( () => {
+        alert('Email enviado com sucesso.')
+    }).catch(error => {
+        alert('Falha no envio de email');
+    });
+}
+
 //Encapsulando o código
 const form = {
     email: () => document.getElementById('email'),
