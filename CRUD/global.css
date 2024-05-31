@@ -1,6 +1,6 @@
 button {
     cursor: pointer;
-     background-color: #66b3fa;
+     background-color: #6e6e6e;
      color: white;
      padding: 10px;
      border: none;
@@ -11,7 +11,7 @@ button {
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background-image: url('bkg.jpg');
+    background-image: url('bkg2.jpg');
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -74,7 +74,7 @@ button {
             border: 1px solid #ccc;
         }
         .cadastro-btn {
-            background-color: #66b3fa;
+            background-color: #08b41f;
             color: rgb(253, 253, 253);
             border: none;
             padding: 10px 20px;
