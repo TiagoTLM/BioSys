@@ -4,11 +4,11 @@
  }
 
 button[disabled]{
-    opacity: 0.6;
+    opacity: 0.4;
 }
       
         .login-btn, .registra-btn {
-            background-color: #66b3fa;
+            background-color: #08b41f;
             color: rgb(253, 253, 253);
             border: none;
             padding: 10px 20px;
