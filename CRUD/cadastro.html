@@ -13,6 +13,7 @@
             max-width: 300px;
             margin-top: 10px;
             display: none;
+            position: relative;
         }
         #video {
             width: 100%;
@@ -23,6 +24,16 @@
             width: 100%;
             max-width: 300px;
             margin-top: 10px;
+        }
+        #loading-message {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 5px;
         }
     </style>
     <!-- Chamando o CSS -->
@@ -91,8 +102,10 @@
             <div class="input-group">
                 <button type="button" id="start-camera">QR Code</button>
                 <button type="button" id="take-photo" style="display:none;">Tirar Foto</button>
+                <button type="button" id="close-camera" style="display:none;">Fechar Câmera</button>
                 <div id="camera-container">
                     <video id="video"></video>
+                    <div id="loading-message">Carregando câmera...</div>
                 </div>
                 <img id="photo" alt="Foto Capturada">
                 <input type="hidden" id="photo-data" name="photo-data">
@@ -109,20 +122,26 @@
     <script>
         const startCameraButton = document.getElementById('start-camera');
         const takePhotoButton = document.getElementById('take-photo');
+        const closeCameraButton = document.getElementById('close-camera');
         const video = document.getElementById('video');
         const cameraContainer = document.getElementById('camera-container');
         const photo = document.getElementById('photo');
         const photoDataInput = document.getElementById('photo-data');
+        const loadingMessage = document.getElementById('loading-message');
         
         startCameraButton.addEventListener('click', async () => {
             try {
+                loadingMessage.style.display = 'block';
                 const stream = await navigator.mediaDevices.getUserMedia({ video: true });
                 video.srcObject = stream;
                 cameraContainer.style.display = 'block';
                 takePhotoButton.style.display = 'inline-block';
+                closeCameraButton.style.display = 'inline-block';
                 video.play();
+                loadingMessage.style.display = 'none';
             } catch (error) {
                 alert('Erro ao acessar a câmera: ' + error.name + ' - ' + error.message);
+                loadingMessage.style.display = 'none';
             }
         });
 
@@ -139,6 +158,15 @@
             video.srcObject.getTracks().forEach(track => track.stop());
             cameraContainer.style.display = 'none';
             takePhotoButton.style.display = 'none';
+            closeCameraButton.style.display = 'none';
+        });
+
+        closeCameraButton.addEventListener('click', () => {
+            video.pause();
+            video.srcObject.getTracks().forEach(track => track.stop());
+            cameraContainer.style.display = 'none';
+            takePhotoButton.style.display = 'none';
+            closeCameraButton.style.display = 'none';
         });
     </script>
 </body>
