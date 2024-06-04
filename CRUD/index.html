@@ -40,6 +40,7 @@
         }
     </style>
 </head>
+
 <body>
 
 <form id="login-form">
@@ -49,13 +50,18 @@
             <input type="text" id="email" name="email" placeholder="seu@email.com" onchange="onChangeEmail()" required>
         </div>
         <div class="error" id="obrigLogin">Informe um email</div>
+        
+        <!--
         <div class="error" id="avisoLogin">Informe um email válido</div>
+        -->
 
         <div class="input-group">
             <input type="password" id="senha" name="senha" placeholder="sua senha" onchange="onChangeSenha()" required>
         </div>
         <div class="error" id="obrigSenha">Informe uma senha</div>
+        <!--
         <div class="error" id="avisoSenha">Senha inválida</div>
+        -->
     </div>
     
     <div class="button-container">
@@ -66,6 +72,10 @@
         <button type="button" class="recover-btn" onclick="recoverPassword()" disabled="true" id="recover-btn">Recuperar senha</button>
     </div>
 </form>
+</body>
+    
+
+</html>
 
 <!-- Scripts -->
 <script src="login.js"></script>
@@ -91,5 +101,4 @@
   
 </script>
 
-</body>
-</html>
+

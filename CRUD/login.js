@@ -12,14 +12,17 @@ function login(event) {
     const email = form.email().value;
     const senha = form.senha().value;
     
+    showLoading();
     //Autenticando com o Firebase
     firebase.auth().signInWithEmailAndPassword(email, senha)
     .then(response => {
+        hideLoading();
         //Redirecionamento bem sucedido
-        //showLoading(); Teste de tela para load
+        //showLoading(); //Teste de tela para load
         window.location.href = "cadastro.html";
     })
     .catch(error => {
+        hideLoading();
         //Falha na autenticação
         alert(getErrorMessage(error));
 
