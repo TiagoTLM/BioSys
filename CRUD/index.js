@@ -1,6 +1,6 @@
 //Validando os campos de Email e Senha
 //Verifica se o campo Email está vazio e se é válido
-//Se o email for válido -> Botão Recuperar senha será habilitado
+//Se o email for válido -> Botão Recuperar senha será habilitado RepoTest
 function onChangeEmail(){
     toggleButtonsDisable();
     toggleEmailErrors();   
