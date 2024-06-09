@@ -17,24 +17,23 @@ function login(event) {
     firebase.auth().signInWithEmailAndPassword(email, senha)
     .then(response => {
         hideLoading();
-        //Redirecionamento bem sucedido
-        //showLoading(); //Teste de tela para load
-        window.location.href = "cadastro.html";
+        window.location.href = "home.html";
     })
     .catch(error => {
         hideLoading();
         //Falha na autenticação
-        alert(getErrorMessage(error));
+        alert(getErrorMessage(error)); //Teste
+        //alert(error.code);
 
     });
 
    
 }
 
-function getErrorMessage(error){
+/*function getErrorMessage(error){
     if (error.code == "auth/invalid-credential"){
         return "Falha de autenticação de usuário";
     }
     return error.message;
     
-}
+}*/

@@ -88,12 +88,26 @@ function toggleButtonsDisable(){
 
 //Função para recuperação de senha 
 function recoverPassword(){
+    showLoading();
     firebase.auth().sendPasswordResetEmail(form.email().value).then( () => {
-        alert('Email enviado com sucesso.')
+        hideLoading();
+        alert('Email enviado com sucesso.');
     }).catch(error => {
+        hideLoading();
         alert('Falha no envio de email');
     });
+    
 }
+
+function getErrorMessage(error){
+    if (error.code == "auth/user-not-found"){
+        return "Usuário não encontrado";
+    }
+    if (error.code == "auth/invalid-credential"){
+        return "Credenciais inválidas";
+    }
+}
+
 
 //Encapsulando o código
 const form = {

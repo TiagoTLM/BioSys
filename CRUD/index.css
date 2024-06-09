@@ -1,47 +1,46 @@
-/*CSS Inicio */
- button :active{
+/* CSS Inicio */
+button:active {
     opacity: 1;
- }
+}
 
-button[disabled]{
+button[disabled] {
     opacity: 0.4;
 }
-      
-        .login-btn, .registra-btn {
-            background-color: #08b41f;
-            color: rgb(253, 253, 253);
-            border: none;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 15px;
-            border-radius: 2px;
-            cursor: pointer;
-            width: 120px;
-            height: 35px;
-            vertical-align: middle;
-            
-        }
-    
-        .recup-btn {
-            background-color: #0a79e1;
-            color: rgb(253, 253, 253);
-            border: none;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 14px;
-            border-radius: 2px;
-            cursor: pointer;
-        }
 
-        .clear {
-            background-color: transparent;
-            border: none;
-            color: #66b3fa;
-            text-align: left;
-        }       
-/*CSS Fim*/
+.login-btn, .registra-btn {
+    background-color: #08b41f;
+    color: rgb(253, 253, 253);
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    border-radius: 2px;
+    cursor: pointer;
+    width: 120px;
+    height: 35px;
+    vertical-align: middle;
+}
 
+.recup-btn {
+    background-color: #0a79e1;
+    color: rgb(253, 253, 253);
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.clear {
+    background-color: transparent;
+    border: none;
+    color: #66b3fa;
+    text-align: left;
+}
+
+/* CSS Fim */

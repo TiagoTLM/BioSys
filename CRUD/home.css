@@ -1,0 +1,40 @@
+/* Estilos adicionais para a página home */
+.icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.icon {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    cursor: pointer;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    color: inherit;
+}
+
+.icon:hover {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.icon img {
+    width: 80px;
+    height: 80px;
+}
+
+.label {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
