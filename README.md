@@ -12,10 +12,12 @@ O sistema informa caso o usuário não utilize um email em formato válido (seu@
 
 ![print2](https://raw.githubusercontent.com/TiagoTLM/BioSys/main/img/erroLogin.png)
 
-Caso um email válido seja informado, tanto o botão para Recuperar senha quanto o botão de Acesso serão liberados para interação:
+Caso um email e senha válidos sejam informados, tanto o botão para Recuperar senha quanto o botão de Acesso serão liberados para interação:
 
 
 ![print3](https://raw.githubusercontent.com/TiagoTLM/BioSys/main/img/recupSenha.png)
+
+
 Ao apertar no botão "Recuperar senha, o usuário cadastrado receberá um email com um link para alteração de senha no Firebase"
 
 Apenas com o usuário possuidor das permissões de Admin pode interagir com o botão "Registrar", uma vez que esta opção abre a tela de cadastro de novos usuários:
