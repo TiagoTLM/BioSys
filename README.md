@@ -20,10 +20,6 @@ Ao apertar no botão "Recuperar senha, o usuário cadastrado receberá um email 
 
 Apenas com o usuário possuidor das permissões de Admin pode interagir com o botão "Registrar", uma vez que esta opção abre a tela de cadastro de novos usuários:
 
-
-![print4](https://raw.githubusercontent.com/TiagoTLM/BioSys/main/img/Reg.png)
-
-
 Erro de autenticação do usuário (Firebase):
 
 
@@ -36,7 +32,7 @@ Após acessar com um usuário cadastrado, teremos a tela de Home:
 Módulo de cadastro de exames:
 
 
-![print7](https://github.com/TiagoTLM/BioSys/blob/main/img/Cadastro.png?raw=true)
+![print7](https://raw.githubusercontent.com/TiagoTLM/BioSys/main/img/cadastroExames.png)
 
 
 
