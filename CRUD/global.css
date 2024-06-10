@@ -1,4 +1,4 @@
-.loading{
+.loading {
     background: rgba(0, 0, 0, 0.5);
     position: fixed;
     width: 100%;
@@ -7,8 +7,10 @@
     justify-content: center;
     align-items: center;    
 }
-.loading label {
-    font-size: 24px;
+
+.loading img {
+    width: 100px; /* Ajuste conforme necessário */
+    height: auto; /* Mantém a proporção da imagem */
 }
 button {
     cursor: pointer;

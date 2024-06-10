@@ -1,22 +1,30 @@
-//Teste para tela de load
-function showLoading(){
+// Função para mostrar o aviso de "carregando"
+function showLoading() {
+   // Cria um elemento <div>
    const div = document.createElement("div");
+   // Adiciona a classe "loading" ao <div>
    div.classList.add("loading");
 
-   const label = document.createElement("label");
-   label.innerText = "Carregando...";
+   // Cria um elemento <img>
+   const img = document.createElement("img");
+   // Define o caminho da imagem para o GIF de carregamento
+   img.src = "loading.gif";
+   img.alt = "Carregando..."; // Texto alternativo caso a imagem não carregue
 
-   div.appendChild(label);
+   // Adiciona a <img> como filha do <div>
+   div.appendChild(img);
 
-   document.body.appendChild(div); 
-
+   // Adiciona o <div> ao corpo do documento
+   document.body.appendChild(div);
 }
 
-function hideLoading(){
+// Função para ocultar o aviso de "carregando"
+function hideLoading() {
+   // Seleciona todos os elementos com a classe "loading"
    const loadings = document.getElementsByClassName("loading");
-   if (loadings.length){
+   // Se existir pelo menos um elemento com a classe "loading"
+   if (loadings.length) {
+      // Remove o primeiro elemento com a classe "loading"
       loadings[0].remove();
    }
-
-
 }
