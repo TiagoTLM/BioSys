@@ -121,7 +121,7 @@ button {
     }
 .button-container {
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
     margin-bottom: 10px; /* Espaço entre os botões e o botão "Recuperar senha" */
 }
