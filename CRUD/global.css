@@ -105,3 +105,35 @@ button {
             display: none;
             font-size: 13px;
         }
+/* Estilo adicional para o botão Recuperar senha */
+    .recover-btn {
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 10px;
+        background-color: #08b41f; /* Cor de fundo */
+        color: white; /* Cor do texto */
+        border: none;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        border-radius: 4px; /* Borda arredondada */
+    }
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px; /* Espaço entre os botões e o botão "Recuperar senha" */
+}
+.button-container > * {
+    margin: 0 10px;
+}
+.recover-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Adaptação para colocar todos os inputs dentro do login-container */
+.login-container {
+    margin-bottom: 20px; /* Espaço abaixo do container de login */
+}
