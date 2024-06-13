@@ -1,5 +1,4 @@
-// camera.js
-
+//Chamando a câmera para registrar os QR codes dos pacientes
 document.addEventListener('DOMContentLoaded', () => {
     const startCameraButton = document.getElementById('start-camera');
     const takePhotoButton = document.getElementById('take-photo');
@@ -77,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         const formData = new FormData(form);
-        // Você pode enviar o formData via AJAX para o servidor aqui
+        //Enviar o formData para o servidor
         formMessages.innerHTML = '<p>Formulário enviado com sucesso!</p>';
     });
 });
