@@ -1,23 +1,43 @@
 .input-group {
     margin-bottom: 15px;
 }
+
+#camera-section {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    background: white;
+    padding: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: none; /* Inicialmente escondido */
+}
+
+#camera-section.visible {
+    display: block; /* Exibir quando a câmera estiver ativa */
+}
+
 #camera-container {
     width: 100%;
     max-width: 300px;
     margin-top: 10px;
-    display: none;
     position: relative;
+    display: none;
 }
+
 #video {
     width: 95%;
     height: auto;
 }
+
 #photo {
     display: none;
     width: 100%;
     max-width: 300px;
     margin-top: 10px;
 }
+
 #loading-message {
     display: none;
     position: absolute;
@@ -28,28 +48,16 @@
     padding: 10px;
     border-radius: 5px;
 }
+
 .photo-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
     margin-top: 10px;
 }
+
 .photo-grid img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-}
-#camera-section {
-    position: fixed;
-    top: 10%;
-    right: 10%;
-    width: 300px;
-    background: white;
-    padding: 10px;
-    border: 1px solid #ccc;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    display: none; /* Inicialmente escondido */
-}
-#camera-container {
-    display: none;
+    width: 120px; /* Reduzindo um pouco o tamanho das imagens */
+    height: 120px; /* Ajustando a altura para manter a proporção */
+    object-fit: cover; /* Cobertura total do espaço do container */
 }
