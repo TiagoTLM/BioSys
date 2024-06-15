@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +12,7 @@
 <body>
     <div class="cadastro-container">
         <h2>Cadastro de Exames</h2>
-        <form action="#" method="post" enctype="multipart/form-data">
+        <form id="cadastro-form" action="#" method="post" enctype="multipart/form-data">
             <!-- Seus campos de formulário aqui -->
             <div class="input-group">
                 <label for="numero_exame"><b>Número do Exame:</b></label>
@@ -26,32 +26,32 @@
             <!-- Campo de Idade -->
             <div class="input-group">
                 <label for="idade"><b>Idade:</b></label>
-                <input type="number" id="idade" name="idade" required>
+                <input type="number" id="idade" name="idade">
             </div>
             <!-- Campo de Convênio -->
             <div class="input-group">
                 <label for="convenio"><b>Convênio:</b></label>
-                <input type="text" id="convenio" name="convenio" required>
+                <input type="text" id="convenio" name="convenio">
             </div>
             <!-- Campo de Procedimento -->
             <div class="input-group">
                 <label for="procedimento"><b>Procedimento:</b></label>
-                <input type="text" id="procedimento" name="procedimento" required>
+                <input type="text" id="procedimento" name="procedimento">
             </div>
             <!-- Campo de Data -->
             <div class="input-group">
                 <label for="data"><b>Data:</b></label>
-                <input type="date" id="data" name="data" required>
+                <input type="date" id="data" name="data">
             </div>
             <!-- Campo de Hora de Início -->
             <div class="input-group">
                 <label for="hora_inicio"><b>Hora de Início:</b></label>
-                <input type="time" id="hora_inicio" name="hora_inicio" required>
+                <input type="time" id="hora_inicio" name="hora_inicio">
             </div>
             <!-- Campo de Hora de Término -->
             <div class="input-group">
                 <label for="hora_termino"><b>Hora de Término:</b></label>
-                <input type="time" id="hora_termino" name="hora_termino" required>
+                <input type="time" id="hora_termino" name="hora_termino">
             </div>
             <!-- Campo de Médico Solicitante -->
             <div class="input-group">
@@ -61,23 +61,17 @@
             <!-- Campo de Médico Executante -->
             <div class="input-group">
                 <label for="medico_executante"><b>Médico Executante:</b></label>
-                <input type="text" id="medico_executante" name="medico_executante" required>
+                <input type="text" id="medico_executante" name="medico_executante">
             </div>
             <!-- Campo de Técnico Auxiliar -->
             <div class="input-group">
                 <label for="tecnico_auxiliar"><b>Técnico Auxiliar:</b></label>
-                <input type="text" id="tecnico_auxiliar" name="tecnico_auxiliar" required>
+                <input type="text" id="tecnico_auxiliar" name="tecnico_auxiliar">
             </div>
             <!-- Botão e Campo de Captura de Foto -->
             <div class="input-group">
-                <button type="button" id="start-camera">QR Code</button>
-                <button type="button" id="take-photo" style="display:none;">Tirar Foto</button>
-                <button type="button" id="close-camera" style="display:none;">Fechar Câmera</button>
-                <div id="camera-container">
-                    <video id="video"></video>
-                    <div id="loading-message">Carregando câmera...</div>
-                </div>
-                <img id="photo" alt="Foto Capturada">
+                <button type="button" id="start-camera" aria-label="Iniciar Câmera">QR Code</button>
+                <div class="photo-grid" id="photo-grid"></div>
                 <input type="hidden" id="photo-data" name="photo-data">
             </div>
             <!-- Botão de Cadastro -->
@@ -87,57 +81,19 @@
                 </div>
             </div>
         </form>
+        <div id="form-messages"></div>
     </div>
-    <!-- Script para adicionar leitor de QR code -->
-    <script>
-        const startCameraButton = document.getElementById('start-camera');
-        const takePhotoButton = document.getElementById('take-photo');
-        const closeCameraButton = document.getElementById('close-camera');
-        const video = document.getElementById('video');
-        const cameraContainer = document.getElementById('camera-container');
-        const photo = document.getElementById('photo');
-        const photoDataInput = document.getElementById('photo-data');
-        const loadingMessage = document.getElementById('loading-message');
-        
-        startCameraButton.addEventListener('click', async () => {
-            try {
-                loadingMessage.style.display = 'block';
-                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-                video.srcObject = stream;
-                cameraContainer.style.display = 'block';
-                takePhotoButton.style.display = 'inline-block';
-                closeCameraButton.style.display = 'inline-block';
-                video.play();
-                loadingMessage.style.display = 'none';
-            } catch (error) {
-                alert('Erro ao acessar a câmera: ' + error.name + ' - ' + error.message);
-                loadingMessage.style.display = 'none';
-            }
-        });
 
-        takePhotoButton.addEventListener('click', () => {
-            const canvas = document.createElement('canvas');
-            canvas.width = video.videoWidth;
-            canvas.height = video.videoHeight;
-            canvas.getContext('2d').drawImage(video, 0, 0);
-            const dataURL = canvas.toDataURL('image/png');
-            photo.src = dataURL;
-            photo.style.display = 'block';
-            photoDataInput.value = dataURL;
-            video.pause();
-            video.srcObject.getTracks().forEach(track => track.stop());
-            cameraContainer.style.display = 'none';
-            takePhotoButton.style.display = 'none';
-            closeCameraButton.style.display = 'none';
-        });
+    <div id="camera-section">
+        <button type="button" id="take-photo" aria-label="Tirar Foto" style="display:none;">Tirar Foto</button>
+        <button type="button" id="close-camera" aria-label="Fechar Câmera" style="display:none;">Fechar Câmera</button>
+        <div id="camera-container">
+            <video id="video"></video>
+            <div id="loading-message">Carregando câmera...</div>
+        </div>
+    </div>
 
-        closeCameraButton.addEventListener('click', () => {
-            video.pause();
-            video.srcObject.getTracks().forEach(track => track.stop());
-            cameraContainer.style.display = 'none';
-            takePhotoButton.style.display = 'none';
-            closeCameraButton.style.display = 'none';
-        });
-    </script>
+    <!-- Incluindo o arquivo camera.js -->
+    <script src="camera.js"></script>
 </body>
 </html>

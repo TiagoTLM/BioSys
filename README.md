@@ -29,10 +29,6 @@ Ao apertar no botão "Recuperar senha, o usuário cadastrado receberá um email 
 
 Apenas com o usuário possuidor das permissões de Admin pode interagir com o botão "Registrar", uma vez que esta opção abre a tela de cadastro de novos usuários:
 
-Erro de autenticação do usuário (Firebase):
-
-![print5](https://raw.githubusercontent.com/TiagoTLM/BioSys/main/img/erroLogin.png)
-
 ---------------------------------------------------------------------------------------
 
 Após acessar com um usuário cadastrado, teremos a tela de Home:
