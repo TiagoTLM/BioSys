@@ -17,7 +17,7 @@ function login(event) {
     firebase.auth().signInWithEmailAndPassword(email, senha)
     .then(response => {
         hideLoading();
-        window.location.href = "home.html";
+        window.location.href = '../html/home.html';
     })
     .catch(error => {
         hideLoading();
