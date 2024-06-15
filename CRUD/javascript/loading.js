@@ -15,14 +15,8 @@ function showLoading() {
        // Cria um elemento <img>
        const img = document.createElement("img");
        // Define o caminho da imagem para o GIF de carregamento
-       img.src = "../img/loading.gif";
+       img.src = "../image/loading.gif";
        img.alt = "Carregando..."; // Texto alternativo caso a imagem não carregue
-
-        // Cria um elemento <img>
-        const img = document.createElement("img");
-        // Define o caminho da imagem para o GIF de carregamento
-        img.src = "loading.gif";
-        img.alt = "Carregando..."; // Texto alternativo caso a imagem não carregue
 
         // Adiciona a <img> como filha do <div>
         div.appendChild(img);
