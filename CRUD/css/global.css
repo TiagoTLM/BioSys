@@ -136,3 +136,8 @@ button {
 .login-container {
     margin-bottom: 20px; /* Espaço abaixo do container de login */
 }
+
+.icon img {
+    width: 35px; 
+    height: 35px; 
+}
