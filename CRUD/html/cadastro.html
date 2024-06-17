@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -8,9 +7,34 @@
     <!-- Chamando o CSS -->
     <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="../css/cadastro.css">
+    <script src="../javascript/loading.js" defer></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const icons = document.querySelectorAll('.icon');
+
+            icons.forEach(icon => {
+                icon.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    showLoading();
+                    setTimeout(() => {
+                        window.location.href = this.href;
+                    }, 500); // Delay para demonstração; ajuste conforme necessário
+                });
+            });
+        });
+
+        window.addEventListener('load', hideLoading); // Garante que o loading seja removido ao carregar a página
+    </script>
+
 </head>
 <body>
     <div class="cadastro-container">
+        <div class="header-container">
+            <a href="../html/home.html" class="icon">
+                <img src="../image/voltar.png" alt="Voltar"/>
+            </a>
+        </div>
         <h2>Cadastro de Exames</h2>
         <form id="cadastro-form" action="#" method="post" enctype="multipart/form-data">
             <!-- Seus campos de formulário aqui -->
