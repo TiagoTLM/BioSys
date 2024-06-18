@@ -136,3 +136,18 @@ button {
 .login-container {
     margin-bottom: 20px; /* Espaço abaixo do container de login */
 }
+
+/* Botão voltar da pagina de cadastro */
+.icon img {
+    width: 40px; 
+    height: 40px; 
+}
+
+.header-container {
+    display: flex;  /*Usa o flexbox para alinhar a seta e o texto horizontalmente */
+}
+
+.header-container h2 {
+    margin: 0; /* Remove margens extras */
+    padding-left: 10px; /* Adiciona espaço entre a seta e o texto */
+}
