@@ -1,4 +1,3 @@
-//Chamando a câmera para registrar os QR codes dos pacientes
 document.addEventListener('DOMContentLoaded', () => {
     const startCameraButton = document.getElementById('start-camera');
     const takePhotoButton = document.getElementById('take-photo');
@@ -18,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
             loadingMessage.style.display = 'block';
             const stream = await navigator.mediaDevices.getUserMedia({ video: true });
             video.srcObject = stream;
-            cameraSection.style.display = 'block';
+            cameraSection.classList.add('visible');
             cameraContainer.style.display = 'block';
             takePhotoButton.style.display = 'inline-block';
             closeCameraButton.style.display = 'inline-block';
@@ -40,10 +39,27 @@ document.addEventListener('DOMContentLoaded', () => {
         canvas.height = video.videoHeight;
         canvas.getContext('2d').drawImage(video, 0, 0);
         const dataURL = canvas.toDataURL('image/png');
-        
+
+        const photoContainer = document.createElement('div');
+        photoContainer.classList.add('photo-container');
+
         const img = document.createElement('img');
         img.src = dataURL;
-        photoGrid.appendChild(img);
+        photoContainer.appendChild(img);
+
+
+        //deletando fotos indesejadas 
+        const deleteButton = document.createElement('button');
+        deleteButton.classList.add('delete-button');
+        deleteButton.innerText = 'x';
+        deleteButton.onclick = function () {
+            photoGrid.removeChild(photoContainer);
+            form.removeChild(input);
+            photoCount--;
+        };
+        photoContainer.appendChild(deleteButton);
+
+        photoGrid.appendChild(photoContainer);
 
         const input = document.createElement('input');
         input.type = 'hidden';
@@ -52,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
         form.appendChild(input);
 
         photoCount++;
-        
+
         if (photoCount >= maxPhotos) {
             stopCamera();
         }
@@ -63,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (video.srcObject) {
             video.srcObject.getTracks().forEach(track => track.stop());
         }
-        cameraSection.style.display = 'none';
+        cameraSection.classList.remove('visible');
         cameraContainer.style.display = 'none';
         takePhotoButton.style.display = 'none';
         closeCameraButton.style.display = 'none';
