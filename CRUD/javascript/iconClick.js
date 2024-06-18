@@ -9,7 +9,7 @@ function iconClick() {
             }, 500); //Delay para garantir que o load aparece
         });
 
-        window.addEventListener('beforeunload', showLoading); // Mostra o loading antes de sair da página
+        //window.addEventListener('beforeunload', showLoading); // Mostra o loading antes de sair da página  -- Removido para teste 
     });
 
     window.addEventListener('load', hideLoading); // Garante que o loading seja removido ao carregar a página

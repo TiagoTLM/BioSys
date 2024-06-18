@@ -12,7 +12,8 @@ body {
     justify-content: center;
     align-items: center;
 }
-
+ 
+/*Componente de loading*/
 .loading {
     background: rgba(0, 0, 0, 0.5);
     position: fixed;
@@ -22,10 +23,10 @@ body {
     justify-content: center;
     align-items: center;    
 }
-
+/*css da animação do loading*/
 .loading img {
-    width: 100px; /* Ajuste conforme necessário */
-    height: auto; /* Mantém a proporção da imagem */
+    width: 100px; 
+    height: auto; 
 }
 
 button {
