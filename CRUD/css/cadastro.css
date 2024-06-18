@@ -61,12 +61,3 @@
     height: 120px; /* Ajustando a altura para manter a proporção */
     object-fit: cover; /* Cobertura total do espaço do container */
 }
-
-.header-container {
-    display: flex;  /*Usa o flexbox para alinhar a seta e o texto horizontalmente */
-}
-
-.header-container h2 {
-    margin: 0; /* Remove margens extras */
-    padding-left: 10px; /* Adiciona espaço entre a seta e o texto */
-}
