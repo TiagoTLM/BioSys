@@ -1,5 +1,3 @@
-// cadastro.js
-
 // Função para limpar o formulário ao clicar no botão "Cadastrar"
 function cadastraExame() {
     // Seleciona o formulário pelo ID

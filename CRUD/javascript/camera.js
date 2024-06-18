@@ -93,6 +93,5 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         const formData = new FormData(form);
         //Enviar o formData para o servidor
-        formMessages.innerHTML = '<p>Cadastro efetuado com sucesso!</p>';
     });
 });
