@@ -1,5 +1,3 @@
-// loading.js
-
 // Função para mostrar o aviso de "carregando"
 function showLoading() {
     // Verifica se já existe um elemento de carregamento
@@ -11,12 +9,11 @@ function showLoading() {
         div.setAttribute('aria-live', 'polite');
         div.setAttribute('aria-busy', 'true');
 
-
-       // Cria um elemento <img>
-       const img = document.createElement("img");
-       // Define o caminho da imagem para o GIF de carregamento
-       img.src = "../image/loading.gif";
-       img.alt = "Carregando..."; // Texto alternativo caso a imagem não carregue
+        // Cria um elemento <img>
+        const img = document.createElement("img");
+        // Define o caminho da imagem para o GIF de carregamento
+        img.src = "../image/loading.gif";
+        img.alt = "Carregando..."; // Texto alternativo caso a imagem não carregue
 
         // Adiciona a <img> como filha do <div>
         div.appendChild(img);
