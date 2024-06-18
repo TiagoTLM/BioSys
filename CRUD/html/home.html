@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -8,24 +7,7 @@
     <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="../css/home.css">
     <script src="../javascript/loading.js" defer></script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const icons = document.querySelectorAll('.icon');
-
-            icons.forEach(icon => {
-                icon.addEventListener('click', function (event) {
-                    event.preventDefault();
-                    showLoading();
-                    setTimeout(() => {
-                        window.location.href = this.href;
-                    }, 500); // Delay para demonstração; ajuste conforme necessário
-                });
-            });
-        });
-
-        window.addEventListener('load', hideLoading); // Garante que o loading seja removido ao carregar a página
-    </script>
+    <script src="../javascript/iconClick.js" defer></script>
 </head>
 <body>
     <div class="container">
