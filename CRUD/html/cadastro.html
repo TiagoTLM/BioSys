@@ -33,8 +33,8 @@
             <!-- Campo de Idade -->
             <div class="input-group">
                 <label for="idade"><b>Idade:</b></label>
-                <input type="number" id="idade" name="idade">
-            </div>
+                <input type="number" id="idade" name="idade" oninput="validateIdade()">
+            </div>            
             <!-- Campo de Convênio -->
             <div class="input-group">
                 <label for="convenio"><b>Convênio:</b></label>
@@ -106,5 +106,7 @@
     <script src="../javascript/loading.js"></script>
     <script src="../javascript/cadastro.js" defer></script>
     <script src="../javascript/backButton.js" defer></script>
+    <script src="../javascript/validate.js" defer></script>
+
 </body>
 </html>

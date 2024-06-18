@@ -17,8 +17,8 @@ body {
 .loading {
     background: rgba(0, 0, 0, 0.5);
     position: fixed;
-    width: 100%;
-    height: 100%;
+    width: 500%;
+    height: 500%;
     display: flex;
     justify-content: center;
     align-items: center;    
