@@ -8,14 +8,16 @@
     <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="../css/cadastro.css">
     
+    <!-- Incluindo o arquivo de JavaScript -->
+    <script src="../javascript/cadastro.js" defer></script>
 </head>
 <body>
     <div class="cadastro-container">
-        <div class="header-container">
-            <a href="../html/home.html" class="icon">
-                <img src="../image/voltar.png" id="backButton" onclick="backButton()" alt="Voltar" />
-            </a>
+        
+        <div class="button"> 
+            <img src="../image/voltar.png" id="backButton" class="backButton" onclick="backButton()" alt="Voltar" />
         </div>
+        
         <h2>Cadastro de Exames</h2>
         <form id="cadastro-form" action="#" method="post" enctype="multipart/form-data">
             <!-- Seus campos de formulário aqui -->
@@ -82,13 +84,14 @@
             <!-- Botão de Cadastro -->
             <div class="button-container">
                 <div class="button-group">
-                    <button type="submit" id= "cadastro-btn" class="cadastro-btn" onclick="return cadastraExame()"><strong>Cadastrar</strong></button>
+                    <button type="submit" id="cadastro-btn" class="cadastro-btn" onclick="return cadastraExame()"><strong>Cadastrar</strong></button>
                 </div>
             </div>
         </form>
         <div id="form-messages"></div>
     </div>
 
+    <!-- Seção da Câmera (oculta inicialmente) -->
     <div id="camera-section">
         <button type="button" id="take-photo" aria-label="Tirar Foto" style="display:none;">Tirar Foto</button>
         <button type="button" id="close-camera" aria-label="Fechar Câmera" style="display:none;">Fechar Câmera</button>
@@ -98,11 +101,10 @@
         </div>
     </div>
 
-    <!-- Incluindo o arquivo camera.js -->
+    <!-- Chamando o script de JavaScript -->
     <script src="../javascript/camera.js"></script>
-    <!--Chamando o script de loading-->
     <script src="../javascript/loading.js"></script>
-    <!--Chamando o arquivo cadastro.js-->
     <script src="../javascript/cadastro.js" defer></script>
+    <script src="../javascript/backButton.js" defer></script>
 </body>
 </html>

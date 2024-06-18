@@ -118,7 +118,7 @@ button {
 
 .button-container {
     display: flex;
-    justify-content: left;
+    justify-content: center;
     align-items: center;
     margin-bottom: 10px; /* Espaço entre os botões e o botão "Recuperar senha" */
 }
@@ -144,11 +144,20 @@ button {
     height: 40px; 
 }
 
-.header-container {
-    display: flex;  /*Usa o flexbox para alinhar a seta e o texto horizontalmente */
+#backButton {
+    width: 40px;
+    height: 40px;
+    cursor: pointer; /* Adiciona o cursor de ponteiro para indicar que é clicável */
+    display: flex;
+}
+
+/*.header-container {
+    display: flex;  
 }
 
 .header-container h2 {
-    margin: 0; /* Remove margens extras */
-    padding-left: 10px; /* Adiciona espaço entre a seta e o texto */
-}
+    margin: 0; 
+    padding-left: 10px; 
+} */
+
+

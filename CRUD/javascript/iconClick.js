@@ -6,7 +6,7 @@ function iconClick() {
             icon.addEventListener('click', function (event) {
                 showLoading();
                 window.location.href = event.currentTarget.href;
-            }, 500); //Delay para garantir que o load aparece
+            },500); //Delay para garantir que o load aparece
         });
 
         //window.addEventListener('beforeunload', showLoading); // Mostra o loading antes de sair da página  -- Removido para teste 
