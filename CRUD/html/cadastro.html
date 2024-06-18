@@ -7,7 +7,7 @@
     <!-- Chamando o CSS -->
     <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="../css/cadastro.css">
-    <script src="../javascript/loading.js" defer></script>
+    
 </head>
 <body>
     <div class="cadastro-container">
@@ -82,7 +82,7 @@
             <!-- Botão de Cadastro -->
             <div class="button-container">
                 <div class="button-group">
-                    <button type="submit" class="cadastro-btn"><strong>Cadastrar</strong></button>
+                    <button type="submit" id= "cadastro-btn" class="cadastro-btn" onclick="return cadastraExame()"><strong>Cadastrar</strong></button>
                 </div>
             </div>
         </form>
@@ -102,5 +102,7 @@
     <script src="../javascript/camera.js"></script>
     <!--Chamando o script de loading-->
     <script src="../javascript/loading.js"></script>
+    <!--Chamando o arquivo cadastro.js-->
+    <script src="../javascript/cadastro.js" defer></script>
 </body>
 </html>

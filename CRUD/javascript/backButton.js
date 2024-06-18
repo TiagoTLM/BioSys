@@ -7,7 +7,7 @@ function backButton(){
                 showLoading(); // Mostra o indicador de loading
                 setTimeout(function () {
                     window.location.href = '../html/home.html'; // Redireciona para home.html após um pequeno delay (opcional)
-                }, 1000); // Ajuste o tempo de delay conforme necessário (1000 milissegundos = 1 segundo)
+                }, 500); // Ajuste o tempo de delay conforme necessário (1000 milissegundos = 1 segundo)
             });
         }
     });
