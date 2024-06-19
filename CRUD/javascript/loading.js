@@ -31,6 +31,7 @@ function hideLoading() {
     }
 }
  
+
 /* Teste
 window.addEventListener('load', hideLoading); // Garante que o loading seja removido ao carregar a página
 */

@@ -1,6 +1,6 @@
 function backButton() {
     document.addEventListener('DOMContentLoaded', function () {
-        const redirectButton = document.getElementById('backButton');
+        const redirectButton = form.backBtn();
 
         if (redirectButton) {
             redirectButton.addEventListener('click', function () {
@@ -15,3 +15,9 @@ function backButton() {
 
 // Chamada opcional para garantir que o código seja executado quando necessário
 backButton();
+
+
+//Encapsulando o código
+const form = {
+    backBtn: () => document.getElementById('backButton')
+}
