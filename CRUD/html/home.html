@@ -1,8 +1,5 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BioSys - Home</title>
 
     <!-- Chamando os estilos CSS e o componente de Loading -->
@@ -10,10 +7,18 @@
     <link rel="stylesheet" href="../css/home.css">
     
     <!-- Chamando o JavaScript -->
+    <script src="../javascript/firebaseInitialize.js"></script>
     <script src="../javascript/loading.js" defer></script>
     <script src="../javascript/iconClick.js" defer></script>
+    <script src="../javascript/home.js"></script>
 </head>
 <body>
+
+    <header>
+        <button type="button" class="logout-icon" onclick="logout()" title="Logout">
+        </button>
+    </header>  
+
     <div class="container">
         <div class="icon-container">
             <a href="../html/cadastro.html" class="icon">
@@ -28,14 +33,9 @@
                 <img src="../image/relatorio.jpg" alt="Relatório">
                 <div class="label">Relatório</div>
             </a>
-            <a href="../html/index.html" class="icon logout-icon">
-                <img src="../image/logout.png" alt="Logout">
-                <div class="label">Logout</div>
-            </a>
+            
         </div>
     </div>
-
-    <!-- Colocando o script no final do corpo -->
-    <script src="../javascript/home.js" defer></script>
+       
 </body>
 </html>

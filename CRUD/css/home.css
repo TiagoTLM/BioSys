@@ -1,5 +1,10 @@
 /* Estilos adicionais para a página home */
-
+header {
+    height: 100vh;
+}
+header button {
+    width: auto;
+}
 .container {
     position: relative; /* Para que os ícones absolutos se posicionem relativamente a este container */
     display: flex;
@@ -36,6 +41,20 @@
     color: inherit;
 }
 
+.logout-icon {
+    width: 40px; /* Ajuste o tamanho conforme necessário */
+    height: 40px; /* Ajuste o tamanho conforme necessário */
+    background-color: rgba(255, 255, 255, 0.8);
+    background-image: url('../image/logout.png');
+    background-size: cover; /* Ajusta o tamanho da imagem */
+    padding: 20px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
+    cursor: pointer; /* Muda o cursor ao passar por cima */
+}
+
 .icon:hover {
     background-color: rgba(255, 255, 255, 1);
 }
@@ -54,10 +73,9 @@
 /* Estilos específicos para o ícone de logout */
 .logout-icon {
     position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 40px; /* Ajuste automático de largura conforme o conteúdo */
-    padding: 10px; /* Diminuir o padding para ajustar ao tamanho do ícone */
+    top: 10px; /* Ajustar conforme necessário */
+    right: 10px; /* Ajustar conforme necessário */
+    width: 40px; /* Tamanho do ícone de logout */
 }
 
 .logout-icon img {

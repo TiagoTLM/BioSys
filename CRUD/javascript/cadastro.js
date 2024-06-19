@@ -1,3 +1,4 @@
+/*
 document.addEventListener('DOMContentLoaded', () => {
     // Observador de autenticação
     firebase.auth().onAuthStateChanged(user => {
@@ -6,3 +7,4 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+*/
