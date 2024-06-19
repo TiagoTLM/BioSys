@@ -1,9 +1,21 @@
 /* Estilos adicionais para a página home */
-.icon-container {
+
+.container {
+    position: relative; /* Para que os ícones absolutos se posicionem relativamente a este container */
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.icon-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
     gap: 20px;
+    padding: 20px;
 }
 
 .icon {
@@ -37,4 +49,20 @@
     margin-top: 10px;
     font-size: 16px;
     font-weight: bold;
+}
+
+/* Estilos específicos para o ícone de logout */
+.logout-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px; /* Ajuste automático de largura conforme o conteúdo */
+    padding: 10px; /* Diminuir o padding para ajustar ao tamanho do ícone */
+}
+
+.logout-icon img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 50%; /* Opcional: se desejar bordas arredondadas */
 }

@@ -1,129 +1,128 @@
-//Validando os campos de Email e Senha
-//Verifica se o campo Email está vazio e se é válido
-//Se o email for válido -> Botão Recuperar senha será habilitado RepoTest
-function onChangeEmail(){
-    toggleButtonsDisable();
-    toggleEmailErrors();   
-}
-function onChangeSenha(){
-    toggleButtonsDisable();
-    togglePasswordErrors();
-}
+document.addEventListener('DOMContentLoaded', () => {
+    // Inicialização do Firebase deve ocorrer antes de qualquer chamada para firebase.auth()
+    // Certifique-se de que isso está configurado corretamente no seu código
+    // firebase.initializeApp(firebaseConfig);
 
-//Verificando validade do email
-function isEmailValid(){
-    const email = form.email().value;
-
-    if(!email){
-        return false;
-    }
-    return validateEmail(email);
-}
-
-//Validando a senha
-function isPasswordValid(){
-    const password = form.senha().value;
-
-    if (!password) {
-        return false;
-    }
-    return true; // Qualquer senha não vazia é considerada válida
-}
-
-function toggleEmailErrors(){   //Função que alterna entre os erros para o email de login
-    const email = form.email().value;
-
-    if(!email) {
-        //Email obrigatório!!!
-        form.emailRequired().style.display = "block";
-    } else {
-        form.emailRequired().style.display = "none";
-    }
-
-    if (validateEmail(email)){
-        form.emailInvalidError().style.display = "none";
-    } else {
-        form.emailInvalidError().style.display = "block";
-    }
-}
-
-function togglePasswordErrors(){
-    const password = form.senha().value;
-
-    if(!password) {
-        form.obrigSenha().style.display = "block";
-    } else {
-        form.obrigSenha().style.display = "none";
-    }
-}
-
-// Função para habilitar ou desabilitar o botão Registrar com base no email e na senha
-function toggleRegistrarButton() {
-    const email = form.email().value;
-    const password = form.senha().value;
-
-    // Habilita ou desabilita o botão de registro com base no email e na senha
-    if (email === "tiagotlm@icloud.com" && password === "#71460@Moraes#") {
-        form.registraBtn().disabled = false; // Habilita o botão de registro
-    } else {
-        form.registraBtn().disabled = true; // Desabilita o botão de registro
-    }
-}
-
-// Função para habilitar ou desabilitar todos os botões com base no email e na senha
-function toggleButtonsDisable(){
-    const emailValid = isEmailValid();
-    const passwordValid = isPasswordValid();
-
-    // Habilita ou desabilita o botão de acesso com base na validade do email e da senha
-    form.loginBtn().disabled = !emailValid || !passwordValid;
-
-    // Habilita ou desabilita o botão de recuperação com base na validade do email
-    form.recoverBtn().disabled = !emailValid;
-
-    // Habilita ou desabilita o botão de registro com base no email e na senha
-    toggleRegistrarButton();
-}
-
-
-//Função para recuperação de senha 
-function recoverPassword(){
-    showLoading();
-    firebase.auth().sendPasswordResetEmail(form.email().value).then( () => {
-        hideLoading();
-        alert('Email enviado com sucesso.');
-    }).catch(error => {
-        hideLoading();
-        alert('Falha no envio de email');
+    // Observador de autenticação
+    firebase.auth().onAuthStateChanged(user => {
+        if (user){
+            window.location.href = '../html/home.html';
+        }
     });
-    
-}
 
-function getErrorMessage(error){
-    if (error.code == "auth/user-not-found"){
-        return "Usuário não encontrado";
+    // Funções para manipular mudanças nos campos de email e senha
+    function onChangeEmail(){
+        toggleButtonsDisable();
+        toggleEmailErrors();   
     }
-    if (error.code == "auth/invalid-credential"){
-        return "Credenciais inválidas";
+
+    function onChangeSenha(){
+        toggleButtonsDisable();
+        togglePasswordErrors();
     }
-}
 
+    // Verificação de validade do email
+    function isEmailValid(){
+        const email = form.email().value;
+        if(!email){
+            return false;
+        }
+        return validateEmail(email);
+    }
 
-//Encapsulando o código
-const form = {
-    email: () => document.getElementById('email'),
-    senha: () => document.getElementById('senha'),
-    emailInvalidError: () => document.getElementById('avisoLogin'),
-    emailRequired: () => document.getElementById('obrigLogin'),
-    loginBtn: () => document.getElementById('login-btn'),
-    recoverBtn: () => document.getElementById('recover-btn'),
-    obrigSenha: () => document.getElementById('obrigSenha'),
-    registraBtn: () => document.getElementById('registra-btn')
-}
+    // Verificação de validade da senha
+    function isPasswordValid(){
+        const password = form.senha().value;
+        if (!password) {
+            return false;
+        }
+        return true; // Qualquer senha não vazia é considerada válida
+    }
 
-// Event listeners para os campos de email e senha
-form.email().addEventListener('change', onChangeEmail);
-form.senha().addEventListener('change', onChangeSenha);
+    // Alternância de erros do email
+    function toggleEmailErrors(){
+        const email = form.email().value;
+        if(!email) {
+            form.emailRequired().style.display = "block";
+        } else {
+            form.emailRequired().style.display = "none";
+        }
 
-// Chamada inicial para garantir que os botões estejam corretamente configurados quando a página é carregada
-toggleButtonsDisable();
+        if (validateEmail(email)){
+            form.emailInvalidError().style.display = "none";
+        } else {
+            form.emailInvalidError().style.display = "block";
+        }
+    }
+
+    // Alternância de erros da senha
+    function togglePasswordErrors(){
+        const password = form.senha().value;
+        if(!password) {
+            form.obrigSenha().style.display = "block";
+        } else {
+            form.obrigSenha().style.display = "none";
+        }
+    }
+
+    // Habilitação/Desabilitação do botão de registrar
+    function toggleRegistrarButton() {
+        const email = form.email().value;
+        const password = form.senha().value;
+        if (email === "tiagotlm@icloud.com" && password === "#71460@Moraes#") {
+            form.registraBtn().disabled = false;
+        } else {
+            form.registraBtn().disabled = true;
+        }
+    }
+
+    // Habilitação/Desabilitação de todos os botões
+    function toggleButtonsDisable(){
+        const emailValid = isEmailValid();
+        const passwordValid = isPasswordValid();
+        form.loginBtn().disabled = !emailValid || !passwordValid;
+        form.recoverBtn().disabled = !emailValid;
+        toggleRegistrarButton();
+    }
+
+    // Função para recuperação de senha
+    function recoverPassword(){
+        showLoading();
+        firebase.auth().sendPasswordResetEmail(form.email().value).then( () => {
+            hideLoading();
+            alert('Email enviado com sucesso.');
+        }).catch(error => {
+            hideLoading();
+            alert('Falha no envio de email');
+        });
+    }
+
+    // Função de mensagens de erro
+    function getErrorMessage(error){
+        if (error.code == "auth/user-not-found"){
+            return "Usuário não encontrado";
+        }
+        if (error.code == "auth/invalid-credential"){
+            return "Credenciais inválidas";
+        }
+    }
+
+    // Encapsulamento do formulário
+    const form = {
+        email: () => document.getElementById('email'),
+        senha: () => document.getElementById('senha'),
+        emailInvalidError: () => document.getElementById('avisoLogin'),
+        emailRequired: () => document.getElementById('obrigLogin'),
+        loginBtn: () => document.getElementById('login-btn'),
+        recoverBtn: () => document.getElementById('recover-btn'),
+        obrigSenha: () => document.getElementById('obrigSenha'),
+        registraBtn: () => document.getElementById('registra-btn')
+    }
+
+    // Event listeners para os campos de email e senha
+    form.email().addEventListener('change', onChangeEmail);
+    form.senha().addEventListener('change', onChangeSenha);
+
+    // Chamada inicial para garantir que os botões estejam corretamente configurados quando a página é carregada
+    toggleButtonsDisable();
+});
