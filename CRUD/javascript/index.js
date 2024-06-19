@@ -1,15 +1,3 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Inicialização do Firebase deve ocorrer antes de qualquer chamada para firebase.auth()
-    // Certifique-se de que isso está configurado corretamente no seu código
-    // firebase.initializeApp(firebaseConfig);
-
-    // Observador de autenticação
-    firebase.auth().onAuthStateChanged(user => {
-        if (user){
-            window.location.href = '../html/home.html';
-        }
-    });
-
     // Funções para manipular mudanças nos campos de email e senha
     function onChangeEmail(){
         toggleButtonsDisable();
@@ -125,4 +113,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Chamada inicial para garantir que os botões estejam corretamente configurados quando a página é carregada
     toggleButtonsDisable();
-});
+    

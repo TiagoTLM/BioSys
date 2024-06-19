@@ -1,8 +1,12 @@
-//Deslogando o user
-function logout(){
-    firebase.auth().signOut().then( () => {
-        window.location.href = '../html/index.html';
-    }).catch( () => {
-        alert('Erro ao fazer Logout.');
-    })
+// Função para logout
+function logout() {
+    firebase.auth().signOut()
+        .then(() => {
+            console.log("Usuário deslogado com sucesso");
+            window.location.href = "../html/index.html"; // Redireciona para a página de login após logout
+        })
+        .catch((error) => {
+            console.error("Erro ao fazer logout:", error);
+            alert("Erro ao fazer logout. Por favor, tente novamente.");
+        });
 }
