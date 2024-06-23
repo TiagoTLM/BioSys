@@ -1,12 +1,12 @@
-/*
-//Verifica se o usuário está logado e volta para Home ao atualizar a página
-document.addEventListener('DOMContentLoaded', () => {
-    // Observador de autenticação
-    firebase.auth().onAuthStateChanged(user => {
-        if (user) {
-            window.location.href = '../html/home.html';
-        }
-    });
-});
+function limparFormulario() {
+    var form = document.getElementById('cadastro-form'); //limpa os inputs
+    form.reset();
 
-*/
+    //Limpa as fotos capturadas
+    var photoGrid = document.getElementById('photo-grid');
+    photoGrid.innerHTML = '';
+    document.getElementById('photo-data').value = ''; 
+
+    var formMessages = document.getElementById('form-messages');
+    formMessages.innerHTML = ''; //Limpa o feedback
+}
