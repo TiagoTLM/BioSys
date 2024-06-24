@@ -82,17 +82,25 @@ button {
     border: 1px solid #ccc;
 }
 
-.cadastro-btn {
+.cadastro-btn, .limpar-btn {
     background-color: #08b41f;
     color: rgb(253, 253, 253);
     border: none;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    border-radius: 4px;
+    padding: 10px 20px; /* Adiciona um preenchimento interno de 10px nas partes superior e inferior e 20px nas laterais dos botões. */
+    text-align: center; 
+    text-decoration: none; /* Remove qualquer sublinhado do texto dos botões. */
+    display: inline-block; /* Exibe os botões como elementos inline-block, permitindo ajustar margens e preenchimento. */
+    font-size: 16px; 
+    border-radius: 4px; 
     cursor: pointer;
+    margin-right: 10px; /* Adiciona uma margem direita de 10px, separando os botões horizontalmente. */
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between; /* Distribui os elementos filhos (botões) uniformemente, com espaço igual entre eles. */
+    width: 100%; /* Define a largura do contêiner como 100% do seu elemento pai, ocupando a largura completa disponível. */
+    margin-top: 20px;
 }
 
 .error {
