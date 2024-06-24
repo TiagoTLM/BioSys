@@ -85,14 +85,14 @@ button {
 .cadastro-btn, .limpar-btn {
     background-color: #08b41f;
     color: rgb(253, 253, 253);
-    border: none; /* Remove qualquer borda padrão dos botões. */
+    border: none;
     padding: 10px 20px; /* Adiciona um preenchimento interno de 10px nas partes superior e inferior e 20px nas laterais dos botões. */
     text-align: center; 
     text-decoration: none; /* Remove qualquer sublinhado do texto dos botões. */
     display: inline-block; /* Exibe os botões como elementos inline-block, permitindo ajustar margens e preenchimento. */
-    font-size: 16px; /* Define o tamanho da fonte dos botões como 16px. */
-    border-radius: 4px; /* Adiciona bordas arredondadas com um raio de 4px. */
-    cursor: pointer; /* Muda o cursor para um ponteiro ao passar sobre os botões, indicando que são clicáveis. */
+    font-size: 16px; 
+    border-radius: 4px; 
+    cursor: pointer;
     margin-right: 10px; /* Adiciona uma margem direita de 10px, separando os botões horizontalmente. */
 }
 
