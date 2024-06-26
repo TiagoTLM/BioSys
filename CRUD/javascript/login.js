@@ -30,7 +30,7 @@ function login(event) {
    
 }
 
-/*function getErrorMessage(error){
+/*function getErrorMessage(error){ 
     if (error.code == "auth/invalid-credential"){
         return "Falha de autenticação de usuário";
     }
