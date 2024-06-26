@@ -42,14 +42,14 @@ header button {
 }
 
 .logout-icon {
-    width: 100px; /* Ajuste o tamanho conforme necessário */
-    height: 35px; /* Ajuste o tamanho conforme necessário */
+    width: 40px; /* Ajuste o tamanho conforme necessário */
+    height: 40px; /* Ajuste o tamanho conforme necessário */
     background-color: transparent;
     background-size: contain; /* Ajusta o tamanho da imagem */
     padding: 10px;
     border-radius: 50px;
     transition: background-color 0.3s;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 0px rgba(0, 0, 0, 0.1);
     
     cursor: pointer; /* Muda o cursor ao passar por cima */
 }
