@@ -196,7 +196,7 @@
 
 .modal {
     background-color: white;
-    padding: 20px;
+    padding: 80px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     text-align: center;
@@ -221,7 +221,7 @@
     transition: background-color 3s ease-in-out;
 }
 
-.btn-sim:hover {
+.btn-sim:active {
     background-color: rgba(255, 0, 0, 0.5);
 }
 
