@@ -30,7 +30,7 @@ function confirmDelete() {
             // Aqui você colocaria a lógica para excluir o conteúdo
             console.log('Excluindo conteúdo...');
             closeModal(); // Fecha a modal após a ação
-        }, 2000); // 2000 milissegundos = 2 segundos
+        }, 2500); // 2500 milissegundos = 2 segundos
     });
 
     // Cancela o temporizador se o botão for solto antes dos 3 segundos
