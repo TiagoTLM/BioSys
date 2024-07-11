@@ -1,20 +1,132 @@
+<!DOCTYPE html>
 <html>
 <head>
+    <title>BioSys - Pesquisa de Exames</title>
+    
+    <!-- Chamando o CSS -->
     <link rel="stylesheet" href="../css/global.css">
-    <title>BioSys - Pesquisa</title>
-</head>
-
+    <link rel="stylesheet" href="../css/cadastro.css">
+    <link rel="stylesheet" href="../css/pesquisa.css">
+    
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
     <script src="../javascript/firebaseInitialize.js"></script>
     <script src="../javascript/porteiro.js"></script>
 
+</head>
 <body>
-    
-    <!--
-    <img src="../image/travolta.gif" alt="Travolta Confused" width="700" height="700">
-    -->
+    <div class="pesquisa-container">
+        <!-- Container do formulário de busca -->
+        <div class="search-form-container">
+            <div class="button"> 
+                <img src="../image/voltar.png" id="backButton" class="backButton" title="Voltar" onclick="backButton()" alt="Voltar" />
+            </div>
+            <h2>Pesquisa de Exames</h2>
+            <div class="search-form">
+                <div class="input-group">
+                    <label for="search-nome"><b>Nome do Paciente:</b></label>
+                    <input type="text" id="search-nome" name="search-nome">
+                </div>
+                <div class="input-group">
+                    <label for="search-numero"><b>Número do Exame:</b></label>
+                    <input type="text" id="search-numero" name="search-numero">
+                </div>
+                <div class="button-container">
+                    <button type="button" id="search-btn" class="cadastro-btn"><strong>Buscar</strong></button>
+                </div>
+            </div>
+        </div>
 
+        <!-- Container de resultados e formulário de edição -->
+        <div class="results-container">
+            <!-- Container da tabela de resultados -->
+            <div class="table-container">
+                <table id="results-table">
+                    <thead>
+                        <tr>
+                            <th>Número</th>
+                            <th>Nome do Paciente</th>
+                            <th>Data</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Os resultados da busca aparecerão aqui -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Formulário de edição de exame -->
+            <div class="cadastro-container">
+                <h2>Detalhes do Exame</h2>
+                <form id="cadastro-form" action="#" method="post" enctype="multipart/form-data">
+                    <!-- Campos do formulário (mesmos que em cadastro.html) -->
+                    <div class="input-group">
+                        <label for="numero_exame"><b>Número do Exame:</b></label>
+                        <input type="text" id="numero_exame" name="numero_exame" disabled>
+                    </div>
+                    <div class="input-group">
+                        <label for="paciente"><b>Paciente:</b></label>
+                        <input type="text" id="paciente" name="paciente" disabled>
+                    </div>
+                    <div class="input-group">
+                        <label for="idade"><b>Idade:</b></label>
+                        <input type="number" id="idade" name="idade" oninput="validateIdade()" disabled>
+                    </div>            
+                    <div class="input-group">
+                        <label for="convenio"><b>Convênio:</b></label>
+                        <input type="text" id="convenio" name="convenio" disabled>
+                    </div>
+                    <div class="input-group">
+                        <label for="procedimento"><b>Procedimento:</b></label>
+                        <input type="text" id="procedimento" name="procedimento" disabled>
+                    </div>
+                    <div class="input-group">
+                        <label for="data"><b>Data:</b></label>
+                        <input type="date" id="data" name="data" disabled>
+                    </div>
+                    <div class="input-group">
+                        <label for="hora_inicio"><b>Hora de Início:</b></label>
+                        <input type="time" id="hora_inicio" name="hora_inicio" disabled>
+                    </div>
+                    <div class="input-group">
+                        <label for="hora_termino"><b>Hora de Término:</b></label>
+                        <input type="time" id="hora_termino" name="hora_termino" disabled>
+                    </div>
+                    <div class="input-group">
+                        <label for="medico_solicitante"><b>Médico Solicitante:</b></label>
+                        <input type="text" id="medico_solicitante" name="medico_solicitante" disabled>
+                    </div>
+                    <div class="input-group">
+                        <label for="medico_executante"><b>Médico Executante:</b></label>
+                        <input type="text" id="medico_executante" name="medico_executante" disabled>
+                    </div>
+                    <div class="button-group">
+                        <button type="button" id="editar-btn" class="cadastro-btn" onclick="enableFields()"><strong>Alterar</strong></button>
+                        <button type="button" id="excluir-btn" class="limpar-btn" onclick="openModal()"><strong>Excluir</strong></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id="form-messages"></div>
+    </div>
+    
+    <!-- Chamando outros scripts de JavaScript -->
+    <script src="../javascript/loading.js" defer></script>
+    <script src="../javascript/backButton.js" defer></script>
+    <script src="../javascript/validate.js" defer></script>
+    <script src="../javascript/pesquisa.js" defer></script>
+
+    <div id="modal-container" class="modal-container">
+        <div class="modal">
+            <p>Tem certeza que deseja excluir?</p>
+            <p>Mantenha pressionado para confirmar</p>
+            <div class="button-container">
+                <button id="btn-sim" class="btn-sim" onclick="confirmDelete()">Sim</button>
+                <button class="btn-nao" onclick="closeModal()">Não</button>
+            </div>
+        </div>
+    </div>
+    
 </body>
 </html>
