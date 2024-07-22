@@ -159,6 +159,19 @@ button {
     display: flex;
 }
 
+/* Cor de fundo e leve aumento no tamanho dos botões */
+.login-btn:hover, .registra-btn:hover, .recover-btn:hover, .cadastro-btn:hover, .limpar-btn:hover {
+    background-color: #067b14; /* Cor de fundo ao passar o mouse */
+    transform: scale(1.05); /* Leve aumento de tamanho */
+    transition: transform 0.3s; /* Adiciona uma transição suave */
+}
+
+/* Aumento de tamanho ao passar o mouse leve transição no botão de volta  */
+img.backButton:hover {
+    transform: scale(1.1); /* Aumenta o tamanho da imagem em 10% ao passar o mouse */
+    transition: transform 0.3s; /* Adiciona uma transição suave */
+}
+
 /*.header-container {
     display: flex;  
 }
