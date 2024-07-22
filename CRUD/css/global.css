@@ -172,6 +172,16 @@ img.backButton:hover {
     transition: transform 0.3s; /* Adiciona uma transição suave */
 }
 
+/* Opacidade dos botões */
+button:active {
+    opacity: 1; 
+}
+
+button[disabled] {
+    opacity: 0.4; 
+    cursor: not-allowed;
+}
+
 /*.header-container {
     display: flex;  
 }
