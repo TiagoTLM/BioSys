@@ -83,3 +83,18 @@ header button {
     object-fit: contain;
     border-radius: 50%; /* Opcional: se desejar bordas arredondadas */
 }
+
+.icon img:hover {
+    transform: scale(1.1); 
+    transition: transform 0.3s; /* Adiciona uma transição suave */
+}
+
+.icon:hover {
+    transform: scale(1.1); /* Aumenta o tamanho da div em 10% ao passar o mouse */
+    transition: transform 0.3s; /* Adiciona uma transição suave */
+}
+
+img.logout-icon:hover {
+    transform: scale(1.1); /* Aumenta o tamanho da imagem em 10% ao passar o mouse */
+    transition: transform 0.3s; /* Adiciona uma transição suave */
+}
