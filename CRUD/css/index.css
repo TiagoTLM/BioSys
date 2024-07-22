@@ -1,12 +1,4 @@
 /* CSS Inicio */
-button:active {
-    opacity: 1;
-}
-
-button[disabled] {
-    opacity: 0.4;
-}
-
 .login-btn, .registra-btn {
     background-color: #08b41f;
     color: rgb(253, 253, 253);
