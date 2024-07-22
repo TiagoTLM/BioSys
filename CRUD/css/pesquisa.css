@@ -241,15 +241,6 @@
     font-weight: bold;
 }
 
-button:active {
-    opacity: 1; 
-}
-
-button[disabled] {
-    opacity: 0.4; 
-    cursor: not-allowed;
-}
-
 #salvar-btn {
     margin-left: -500px; /* Aproxima o botão "Salvar" do botão "Alterar" */
 }
