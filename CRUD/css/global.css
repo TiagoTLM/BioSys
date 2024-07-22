@@ -1,3 +1,11 @@
+
+button:active {
+    opacity: 1;
+}
+
+button[disabled] {
+    opacity: 0.4;
+}
 /* Defina uma cor de fundo azul claro para o corpo */
 body {
     margin: 0;
